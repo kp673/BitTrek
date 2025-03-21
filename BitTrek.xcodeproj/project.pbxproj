@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		43838EC22D8E25B100F1C9FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 43838EA92D8E25AF00F1C9FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43838EB02D8E25AF00F1C9FA;
+			remoteInfo = BitTrek;
+		};
+		43838ECC2D8E25B100F1C9FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 43838EA92D8E25AF00F1C9FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43838EB02D8E25AF00F1C9FA;
+			remoteInfo = BitTrek;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		43838EB12D8E25AF00F1C9FA /* BitTrek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitTrek.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		43838EC12D8E25B100F1C9FA /* BitTrekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitTrekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43838ECB2D8E25B100F1C9FA /* BitTrekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitTrekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		43838EB32D8E25AF00F1C9FA /* BitTrek */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BitTrek;
+			sourceTree = "<group>";
+		};
+		43838EC42D8E25B100F1C9FA /* BitTrekTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BitTrekTests;
+			sourceTree = "<group>";
+		};
+		43838ECE2D8E25B100F1C9FA /* BitTrekUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BitTrekUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		43838EAE2D8E25AF00F1C9FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43838EBE2D8E25B100F1C9FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43838EC82D8E25B100F1C9FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		43838EA82D8E25AF00F1C9FA = {
+			isa = PBXGroup;
+			children = (
+				43838EB32D8E25AF00F1C9FA /* BitTrek */,
+				43838EC42D8E25B100F1C9FA /* BitTrekTests */,
+				43838ECE2D8E25B100F1C9FA /* BitTrekUITests */,
+				43838EB22D8E25AF00F1C9FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		43838EB22D8E25AF00F1C9FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				43838EB12D8E25AF00F1C9FA /* BitTrek.app */,
+				43838EC12D8E25B100F1C9FA /* BitTrekTests.xctest */,
+				43838ECB2D8E25B100F1C9FA /* BitTrekUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43838EB02D8E25AF00F1C9FA /* BitTrek */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43838ED52D8E25B100F1C9FA /* Build configuration list for PBXNativeTarget "BitTrek" */;
+			buildPhases = (
+				43838EAD2D8E25AF00F1C9FA /* Sources */,
+				43838EAE2D8E25AF00F1C9FA /* Frameworks */,
+				43838EAF2D8E25AF00F1C9FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				43838EB32D8E25AF00F1C9FA /* BitTrek */,
+			);
+			name = BitTrek;
+			packageProductDependencies = (
+			);
+			productName = BitTrek;
+			productReference = 43838EB12D8E25AF00F1C9FA /* BitTrek.app */;
+			productType = "com.apple.product-type.application";
+		};
+		43838EC02D8E25B100F1C9FA /* BitTrekTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43838ED82D8E25B100F1C9FA /* Build configuration list for PBXNativeTarget "BitTrekTests" */;
+			buildPhases = (
+				43838EBD2D8E25B100F1C9FA /* Sources */,
+				43838EBE2D8E25B100F1C9FA /* Frameworks */,
+				43838EBF2D8E25B100F1C9FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				43838EC32D8E25B100F1C9FA /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				43838EC42D8E25B100F1C9FA /* BitTrekTests */,
+			);
+			name = BitTrekTests;
+			packageProductDependencies = (
+			);
+			productName = BitTrekTests;
+			productReference = 43838EC12D8E25B100F1C9FA /* BitTrekTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		43838ECA2D8E25B100F1C9FA /* BitTrekUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43838EDB2D8E25B100F1C9FA /* Build configuration list for PBXNativeTarget "BitTrekUITests" */;
+			buildPhases = (
+				43838EC72D8E25B100F1C9FA /* Sources */,
+				43838EC82D8E25B100F1C9FA /* Frameworks */,
+				43838EC92D8E25B100F1C9FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				43838ECD2D8E25B100F1C9FA /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				43838ECE2D8E25B100F1C9FA /* BitTrekUITests */,
+			);
+			name = BitTrekUITests;
+			packageProductDependencies = (
+			);
+			productName = BitTrekUITests;
+			productReference = 43838ECB2D8E25B100F1C9FA /* BitTrekUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		43838EA92D8E25AF00F1C9FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					43838EB02D8E25AF00F1C9FA = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					43838EC02D8E25B100F1C9FA = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 43838EB02D8E25AF00F1C9FA;
+					};
+					43838ECA2D8E25B100F1C9FA = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 43838EB02D8E25AF00F1C9FA;
+					};
+				};
+			};
+			buildConfigurationList = 43838EAC2D8E25AF00F1C9FA /* Build configuration list for PBXProject "BitTrek" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 43838EA82D8E25AF00F1C9FA;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 43838EB22D8E25AF00F1C9FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				43838EB02D8E25AF00F1C9FA /* BitTrek */,
+				43838EC02D8E25B100F1C9FA /* BitTrekTests */,
+				43838ECA2D8E25B100F1C9FA /* BitTrekUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		43838EAF2D8E25AF00F1C9FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43838EBF2D8E25B100F1C9FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43838EC92D8E25B100F1C9FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43838EAD2D8E25AF00F1C9FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43838EBD2D8E25B100F1C9FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43838EC72D8E25B100F1C9FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		43838EC32D8E25B100F1C9FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43838EB02D8E25AF00F1C9FA /* BitTrek */;
+			targetProxy = 43838EC22D8E25B100F1C9FA /* PBXContainerItemProxy */;
+		};
+		43838ECD2D8E25B100F1C9FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43838EB02D8E25AF00F1C9FA /* BitTrek */;
+			targetProxy = 43838ECC2D8E25B100F1C9FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		43838ED32D8E25B100F1C9FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		43838ED42D8E25B100F1C9FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		43838ED62D8E25B100F1C9FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BitTrek/Preview Content\"";
+				DEVELOPMENT_TEAM = 44S328XCHF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kush.BitTrek;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		43838ED72D8E25B100F1C9FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BitTrek/Preview Content\"";
+				DEVELOPMENT_TEAM = 44S328XCHF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kush.BitTrek;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		43838ED92D8E25B100F1C9FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44S328XCHF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kush.BitTrekTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BitTrek.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BitTrek";
+			};
+			name = Debug;
+		};
+		43838EDA2D8E25B100F1C9FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44S328XCHF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kush.BitTrekTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BitTrek.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BitTrek";
+			};
+			name = Release;
+		};
+		43838EDC2D8E25B100F1C9FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44S328XCHF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kush.BitTrekUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BitTrek;
+			};
+			name = Debug;
+		};
+		43838EDD2D8E25B100F1C9FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44S328XCHF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kush.BitTrekUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BitTrek;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		43838EAC2D8E25AF00F1C9FA /* Build configuration list for PBXProject "BitTrek" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43838ED32D8E25B100F1C9FA /* Debug */,
+				43838ED42D8E25B100F1C9FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43838ED52D8E25B100F1C9FA /* Build configuration list for PBXNativeTarget "BitTrek" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43838ED62D8E25B100F1C9FA /* Debug */,
+				43838ED72D8E25B100F1C9FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43838ED82D8E25B100F1C9FA /* Build configuration list for PBXNativeTarget "BitTrekTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43838ED92D8E25B100F1C9FA /* Debug */,
+				43838EDA2D8E25B100F1C9FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43838EDB2D8E25B100F1C9FA /* Build configuration list for PBXNativeTarget "BitTrekUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43838EDC2D8E25B100F1C9FA /* Debug */,
+				43838EDD2D8E25B100F1C9FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 43838EA92D8E25AF00F1C9FA /* Project object */;
+}
