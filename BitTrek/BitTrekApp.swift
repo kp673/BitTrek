@@ -12,6 +12,7 @@ struct BitTrekApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                
         }
     }
 }
