@@ -11,8 +11,10 @@ import SwiftUI
 struct BitTrekApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                
+            NavigationView {
+                HomeView()
+                    .toolbar(.hidden)
+            }
         }
     }
 }
