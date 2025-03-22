@@ -9,19 +9,30 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var viewModel: HomeViewModel
-    @State var showPortfolio: Bool = false
+   
     
     var body: some View {
         ZStack {
-            Color.background.ignoresSafeArea(.all)
+            Color.background
+                .ignoresSafeArea(.all)
+                .sheet(isPresented: $viewModel.showPortfolioView) {
+                    PortfolioView()
+                        .environmentObject(viewModel)
+                }
             
             VStack {
-                HeaderView(showPortfolio: $showPortfolio)
+                HeaderView(showPortfolio: $viewModel.showPortfolio, showPortfolioView: $viewModel.showPortfolioView)
+                
+                HomeStatsView(showPortfolio: $viewModel.showPortfolio)
                 
                 
-                ListColumnTitles(showPortfolio: $showPortfolio)
+                SearchBarView(searchTerm: $viewModel.searchText)
+                    .padding(16)
                 
-                if !showPortfolio {
+                
+                ListColumnTitles(showPortfolio: $viewModel.showPortfolio)
+                
+                if !viewModel.showPortfolio {
                     AllListView()
                         .transition(.move(edge: .leading))
                 } else {
@@ -29,13 +40,27 @@ struct HomeView: View {
                         .transition(.move(edge: .trailing))
                 }
                 
-                
                 Spacer(minLength: 0)
             }
             
         }
         .task {
+            withAnimation { viewModel.isLoding = true}
             await viewModel.getCoins()
+            await viewModel.getMarketData()
+            withAnimation { viewModel.isLoding = false}
+        }
+        .blur(radius: viewModel.isLoding ? 5 : 0)
+        .overlay {
+            ProgressView()
+                .frame(width: 100, height: 100)
+                .foregroundStyle(Color(.label))
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.gray)
+                        .opacity(0.8)
+                )
+                .opacity(viewModel.isLoding ? 1 : 0)
         }
     }
 }

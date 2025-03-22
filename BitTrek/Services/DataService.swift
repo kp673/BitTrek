@@ -11,15 +11,14 @@ final class DataService: Sendable {
     static let shared = DataService()
     private init() {}
     
-    func get<T: Codable>(url: URL, headers: [String: String]? = [:], queryComponents: [DataQueryComponents]) async throws -> T? {
+    func get<T: Codable>(url: URL, headers: [String: String]? = [:], queryComponents: [DataQueryComponents]? = nil) async throws -> T? {
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {throw CoinError.badURL}
-        urlComponents.queryItems = queryComponents.map { $0.queryItem }
+        urlComponents.queryItems = queryComponents?.map { $0.queryItem }
         
         do {
             return try await get(urlComponents: urlComponents, headers: headers)
         } catch {
-            print(error.localizedDescription)
-            return nil
+            throw error
         }
     }
     
@@ -40,8 +39,13 @@ final class DataService: Sendable {
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try decoder.decode(T.self, from: data)
+            let decoded = try decoder.decode(T.self, from: data)
+            return decoded
+        } catch CoinError.invalidResponse {
+            print(response)
+            throw CoinError.invalidResponse
         } catch {
+            print(error.localizedDescription)
             throw CoinError.decodingFailed
         }
     }

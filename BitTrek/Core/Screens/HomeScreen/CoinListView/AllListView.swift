@@ -10,11 +10,15 @@ struct AllListView: View {
     @EnvironmentObject var viewModel: HomeViewModel
     var body: some View {
         List {
-            ForEach(viewModel.allCoins) { coin in
+            ForEach(viewModel.filteredResults) { coin in
                 CoinListCellView(coin: coin, showHoldingsColumn: false)
+                
             }
         }
         .listStyle(.inset)
+        .onChange(of: viewModel.searchText) {
+            viewModel.handleSearchOnAllCoins()
+        }
     }
 }
 

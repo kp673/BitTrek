@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @Binding var showPortfolio: Bool
+    @Binding var showPortfolio: Bool // Go to View
+    @Binding var showPortfolioView: Bool // Show edit VIew
     
     var body: some View {
         HStack {
@@ -16,6 +17,9 @@ struct HeaderView: View {
                 .animation(.none, value: showPortfolio)
                 .background {
                     CircleButtonAnimationView(animate: $showPortfolio)
+                }
+                .onTapGesture {
+                    if showPortfolio { showPortfolioView.toggle() }
                 }
             Spacer()
             Text(showPortfolio ? "Portfolio" : "Live Prices")
