@@ -20,19 +20,8 @@ struct CoinListCellView: View {
                 .frame(minWidth: 30)
             
             
-            AsyncImage(url: URL(string: coin.image)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 30, height: 30)
-                    .clipShape(Circle())
-            } placeholder: {
-                Image(.appLogoSVG)
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .background(Color(.blue))
-                    .clipShape(Circle())
-            }
+            CachedAsyncImage(url: coin.image)
+                .frame(width: 30, height: 30)
             
             Text("\(coin.symbol.uppercased())")
                 .font(.headline)

@@ -17,8 +17,9 @@ class HomeViewModel: ObservableObject {
     func getCoins() async {
         do {
             isLoding = true
-            let coins: Coins = try await fetchCoins()
-            self.allCoins = coins
+            if let coins: Coins = try await fetchCoins() {
+                self.allCoins = coins
+            }
             isLoding = false
         } catch {
             print("Error fetching coins: \(error)")
@@ -27,9 +28,9 @@ class HomeViewModel: ObservableObject {
     }
     
     
-    private func fetchCoins() async throws -> Coins {
+    private func fetchCoins() async throws -> Coins? {
         
-        if !IsDevBuild {
+        if IsDevBuild {
             guard let coins: Coins = DataService.shared.loadJSONFromFile(fileName: "CoinResponse") else { return [] }
             return coins
         }
@@ -48,10 +49,11 @@ class HomeViewModel: ObservableObject {
             "x-cg-demo-api-key": ""
           ]
         do {
-            let coins: [Coin] = try await DataService.shared.get(url: url, headers: headers, queryComponents: queryComponents)
+            let coins: Coins? = try await DataService.shared.get(url: url, headers: headers, queryComponents: queryComponents)
             return coins
         } catch {
-            throw CoinError.requestFailed
+            print(error.localizedDescription)
+            return []
         }
     }
 }

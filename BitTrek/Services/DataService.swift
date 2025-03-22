@@ -11,14 +11,15 @@ final class DataService: Sendable {
     static let shared = DataService()
     private init() {}
     
-    func get<T: Codable>(url: URL, headers: [String: String]? = [:], queryComponents: [DataQueryComponents]) async throws -> T {
+    func get<T: Codable>(url: URL, headers: [String: String]? = [:], queryComponents: [DataQueryComponents]) async throws -> T? {
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {throw CoinError.badURL}
         urlComponents.queryItems = queryComponents.map { $0.queryItem }
         
         do {
             return try await get(urlComponents: urlComponents, headers: headers)
         } catch {
-            throw CoinError.requestFailed
+            print(error.localizedDescription)
+            return nil
         }
     }
     
@@ -71,6 +72,7 @@ enum CoinError: Error {
     case decodingFailed
     case badURL
     case requestFailed
+    case imageRetrivalFailed
 }
 
 enum DataQueryComponents {
