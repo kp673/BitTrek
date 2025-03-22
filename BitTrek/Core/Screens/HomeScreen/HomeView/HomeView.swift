@@ -34,6 +34,9 @@ struct HomeView: View {
             }
             
         }
+        .task {
+            await viewModel.getCoins()
+        }
     }
 }
 
@@ -44,31 +47,6 @@ struct HomeView: View {
             .environmentObject(HomeViewModel())
     }
 }
-
-struct AllListView: View {
-    @EnvironmentObject var viewModel: HomeViewModel
-    var body: some View {
-        List {
-            ForEach(viewModel.allCoins) { coin in
-                CoinListCellView(coin: coin, showHoldingsColumn: false)
-            }
-        }
-        .listStyle(.inset)
-    }
-}
-
-struct PortfolioCoinsListView: View {
-    @EnvironmentObject var viewModel: HomeViewModel
-    var body: some View {
-        List {
-            ForEach(viewModel.portfolioCoins) { coin in
-                CoinListCellView(coin: coin, showHoldingsColumn: true)
-            }
-        }
-        .listStyle(.inset)
-    }
-}
-
 
 struct ListColumnTitles: View {
     

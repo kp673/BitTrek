@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct BitTrekApp: App {
-    
     @StateObject private var viewModel = HomeViewModel()
     
     var body: some Scene {
