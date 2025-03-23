@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeStatsView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
     @Binding var showPortfolio: Bool
-    
+
     var body: some View {
         HStack {
             ForEach(viewModel.statistics) { statistics in
@@ -18,7 +18,9 @@ struct HomeStatsView: View {
                     .frame(width: UIScreen.main.bounds.width / 3)
             }
         }
-        .frame(width: UIScreen.main.bounds.width, alignment: showPortfolio ? .trailing : .leading)
+        .frame(
+            width: UIScreen.main.bounds.width,
+            alignment: showPortfolio ? .trailing : .leading)
     }
 }
 

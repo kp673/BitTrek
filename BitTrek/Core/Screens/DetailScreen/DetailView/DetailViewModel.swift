@@ -14,7 +14,7 @@ final class DetailViewModel: ObservableObject {
     @Published var coinDescription: String?
     @Published var websiteUrl: String?
     @Published var redditUrl: String?
-    
+
     var coin: Coin?
 
     //MARK: - Public Get Data Calls
@@ -29,7 +29,7 @@ final class DetailViewModel: ObservableObject {
                 self.createStatistics(for: details)
             }
         } catch {
-            print("Error fetching coins: \(error)")
+            print("Error fetching coin Details: \(error)")
         }
     }
 
@@ -37,7 +37,7 @@ final class DetailViewModel: ObservableObject {
 
     func createStatistics(for coinDetails: CoinDetail) {
         guard let coin else { return }
-        
+
         //Overview data
         let price = coin.currentPrice.asCurrencyUpto6Places()
         let priceChange = coin.priceChangePercentage24H
@@ -57,35 +57,45 @@ final class DetailViewModel: ObservableObject {
         let volume = coin.totalVolume?.formattedWithAbbreviations() ?? ""
         let volumeStat = Statistics(title: "Volume", value: volume)
 
-        
         //Additional Detail
-        
+
         let high = coin.high24H?.asCurrencyUpto6Places() ?? "n/a"
         let highStat = Statistics(title: "High 24h", value: high)
-        
+
         let low24H = coin.low24H?.asCurrencyUpto6Places() ?? "n/a"
         let low24HStat = Statistics(title: "Low 24h", value: low24H)
-        
-        let priceChange24H = coin.priceChange24H?.asCurrencyUpto6Places() ?? "n/a"
+
+        let priceChange24H =
+            coin.priceChange24H?.asCurrencyUpto6Places() ?? "n/a"
         let priceChangePercentage24H = coin.priceChangePercentage24H ?? 0.0
-        let priceChange24HStat = Statistics(title: "Price Change 24h", value: priceChange24H, percentage: priceChangePercentage24H)
-        
-        let marketCapChange24H = "$" + (coin.marketCapChange24H?.formattedWithAbbreviations() ?? "")
-        let marketCapChangePercentage24H = coin.marketCapChangePercentage24H ?? 0.0
-        let marketCapChange24HStat = Statistics(title: "Market Cap Change 24h", value: marketCapChange24H, percentage: marketCapChangePercentage24H)
-        
+        let priceChange24HStat = Statistics(
+            title: "Price Change 24h", value: priceChange24H,
+            percentage: priceChangePercentage24H)
+
+        let marketCapChange24H =
+            "$" + (coin.marketCapChange24H?.formattedWithAbbreviations() ?? "")
+        let marketCapChangePercentage24H =
+            coin.marketCapChangePercentage24H ?? 0.0
+        let marketCapChange24HStat = Statistics(
+            title: "Market Cap Change 24h", value: marketCapChange24H,
+            percentage: marketCapChangePercentage24H)
+
         let blockTimeInMinutes = coinDetails.blockTimeInMinutes ?? 0
-        let blockTimeString = blockTimeInMinutes == 0 ? "n/a" : "\(blockTimeInMinutes)"
-        let blockTimeInMinutesStat = Statistics(title: "Block Time (min)", value: "\(blockTimeString)")
-        
+        let blockTimeString =
+            blockTimeInMinutes == 0 ? "n/a" : "\(blockTimeInMinutes)"
+        let blockTimeInMinutesStat = Statistics(
+            title: "Block Time (min)", value: "\(blockTimeString)")
+
         let hashingAlgorithm = coinDetails.hashingAlgorithm ?? "n/a"
-        let hashingStat = Statistics(title: "Hashing Algorithm", value: hashingAlgorithm)
-        
+        let hashingStat = Statistics(
+            title: "Hashing Algorithm", value: hashingAlgorithm)
+
         self.overviewStatistics = [
             priceStat, marketCapStat, rankStat, volumeStat,
         ]
         self.additionalStatistics = [
-            highStat, low24HStat, priceChange24HStat, marketCapChange24HStat, blockTimeInMinutesStat, hashingStat
+            highStat, low24HStat, priceChange24HStat, marketCapChange24HStat,
+            blockTimeInMinutesStat, hashingStat,
         ]
     }
 
@@ -93,11 +103,11 @@ final class DetailViewModel: ObservableObject {
     private func fetchCoinDeails(for coinId: String) async throws -> CoinDetail?
     {
 
-        guard
-            let coinDetails: CoinDetail? = DataService.shared.loadJSONFromFile(
-                fileName: "CoinDetail")
-        else { return nil }
-        return coinDetails
+//        guard
+//            let coinDetails: CoinDetail? = DataService.shared.loadJSONFromFile(
+//                fileName: "CoinDetail")
+//        else { return nil }
+//        return coinDetails
 
         guard
             let url = URL(

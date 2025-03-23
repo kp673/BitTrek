@@ -16,7 +16,7 @@ struct SearchBarView: View {
                     searchTerm.isEmpty ? Color.secondaryText : Color.accent
                 )
                 .padding(.leading, 8)
-            
+
             TextField("Search by name or symbol ...", text: $searchTerm)
                 .autocorrectionDisabled(true)
                 .submitLabel(.done)
@@ -33,8 +33,7 @@ struct SearchBarView: View {
                             withAnimation {
                                 searchTerm = ""
                             }
-                        }
-                    ,alignment: .trailing
+                        }, alignment: .trailing
                 )
         }
         .font(.headline)

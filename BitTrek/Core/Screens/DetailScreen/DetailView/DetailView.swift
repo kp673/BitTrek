@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailSegueView: View {
     @Binding var coin: Coin?
-    
+
     var body: some View {
         ZStack {
             if let coin {
@@ -19,17 +19,16 @@ struct DetailSegueView: View {
     }
 }
 
-
 struct DetailView: View {
     @StateObject var viewModel = DetailViewModel()
     @State private var showFullDescription: Bool = false
-    
+
     private let columns: [GridItem] = [
         GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible()),
     ]
     let coin: Coin
-    
+
     var body: some View {
         ZStack {
             Color.background.ignoresSafeArea(edges: .all)
@@ -40,28 +39,34 @@ struct DetailView: View {
                     VStack(spacing: 10) {
                         overviewTitle
                         Divider()
-                        
+
                         descriptionSection
                         overviewGrid
-                        
+
                         additionalTitle
                         Divider()
                         additionalGrid
-                        
+
                         HStack {
-                            if let websiteString = viewModel.coinDetails?.links?.homepage?.first, let url = URL(string: websiteString) {
-                                
+                            if let websiteString = viewModel.coinDetails?.links?
+                                .homepage?.first,
+                                let url = URL(string: websiteString)
+                            {
+
                                 Link("Website", destination: url)
                             }
                             Spacer()
-                            if let redditString = viewModel.coinDetails?.links?.subredditURL, let url = URL(string: redditString) {
+                            if let redditString = viewModel.coinDetails?.links?
+                                .subredditURL,
+                                let url = URL(string: redditString)
+                            {
                                 Link("Reddit", destination: url)
                             }
                         }
                         .tint(.blue)
                         .padding()
                         .font(.headline)
-                        
+
                     }
                     .padding(16)
                 }
@@ -88,18 +93,18 @@ struct previewDetailView_Previews: PreviewProvider {
 }
 
 extension DetailView {
-    
+
     private var toolBarImage: some View {
         HStack {
             CachedAsyncImage(url: coin.image)
                 .frame(width: 30, height: 30)
-            
+
             Text(coin.symbol.uppercased())
                 .font(.headline)
                 .foregroundStyle(Color.secondaryText)
         }
     }
-    
+
     private var overviewTitle: some View {
         Text("Overview")
             .font(.title)
@@ -107,7 +112,7 @@ extension DetailView {
             .foregroundStyle(Color.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
-    
+
     private var additionalTitle: some View {
         Text("Additional Details")
             .font(.title)
@@ -115,16 +120,18 @@ extension DetailView {
             .foregroundStyle(Color.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
-    
+
     private var descriptionSection: some View {
         ZStack {
-            if let coinDestription = viewModel.coinDetails?.readableDescription, !coinDestription.isEmpty {
+            if let coinDestription = viewModel.coinDetails?.readableDescription,
+                !coinDestription.isEmpty
+            {
                 VStack(alignment: .leading) {
                     Text(coinDestription)
                         .lineLimit(showFullDescription ? nil : 4)
                         .font(.callout)
                         .foregroundStyle(Color.secondaryText)
-                    
+
                     Button {
                         withAnimation(.easeInOut) {
                             showFullDescription.toggle()
@@ -141,7 +148,7 @@ extension DetailView {
             }
         }
     }
-    
+
     private var overviewGrid: some View {
         LazyVGrid(
             columns: columns,
@@ -153,7 +160,7 @@ extension DetailView {
             }
         }
     }
-    
+
     private var additionalGrid: some View {
         LazyVGrid(
             columns: columns,
@@ -165,6 +172,5 @@ extension DetailView {
             }
         }
     }
-    
-    
+
 }

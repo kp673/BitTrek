@@ -36,5 +36,8 @@ struct CachedAsyncImage: View {
 }
 
 #Preview {
-    CachedAsyncImage(url: "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400")
+    CachedAsyncImage(
+        url:
+            "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"
+    )
 }

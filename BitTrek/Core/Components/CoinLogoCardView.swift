@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CoinLogoCardView: View {
     let coin: Coin
-    
+
     var body: some View {
         VStack {
             CachedAsyncImage(url: coin.image)

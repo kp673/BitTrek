@@ -25,11 +25,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KB8-dT-48Y">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="c2i-n8-o6S">
-                                        <rect key="frame" x="146.66666666666666" y="329.66666666666669" width="100" height="100"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="c2i-n8-o6S">
+                                        <rect key="frame" x="46.666666666666657" y="229.66666666666669" width="300" height="300.00000000000006"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="6yJ-QQ-v7D"/>
-                                            <constraint firstAttribute="width" constant="100" id="jig-hl-yB6"/>
+                                            <constraint firstAttribute="height" constant="300" id="6yJ-QQ-v7D"/>
+                                            <constraint firstAttribute="width" constant="300" id="jig-hl-yB6"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -59,7 +59,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="logo-transparent" width="341.33334350585938" height="341.33334350585938"/>
         <namedColor name="launchBackground">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

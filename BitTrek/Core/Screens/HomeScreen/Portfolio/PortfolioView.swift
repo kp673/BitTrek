@@ -12,22 +12,25 @@ struct PortfolioView: View {
     @EnvironmentObject var viewModel: HomeViewModel
     @FocusState var isFocused: Bool
 
-    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
                     SearchBarView(searchTerm: $viewModel.searchText)
                         .padding(16)
-                    
+
                     CoinCardListView(selectedCoin: $viewModel.selectedCoin)
-                    
+
                     if viewModel.selectedCoin != nil {
                         VStack(spacing: 20) {
                             HStack {
-                                Text("Current Price of \(viewModel.selectedCoin?.symbol.uppercased() ?? "")")
+                                Text(
+                                    "Current Price of \(viewModel.selectedCoin?.symbol.uppercased() ?? "")"
+                                )
                                 Spacer()
-                                Text(viewModel.selectedCoin?.currentPrice.asCurrencyUpto6Places() ?? "")
+                                Text(
+                                    viewModel.selectedCoin?.currentPrice
+                                        .asCurrencyUpto6Places() ?? "")
                             }
                             Divider()
                             HStack {
@@ -41,7 +44,9 @@ struct PortfolioView: View {
                             HStack {
                                 Text("Current Value:")
                                 Spacer()
-                                Text("\(viewModel.getCurrentValue().asCurrencyUpto2Places())")
+                                Text(
+                                    "\(viewModel.getCurrentValue().asCurrencyUpto2Places())"
+                                )
                             }
                             Divider()
                         }
@@ -50,7 +55,7 @@ struct PortfolioView: View {
                         .font(.headline)
                     }
                 }
-                .onChange(of: viewModel.searchText) { _ , search in
+                .onChange(of: viewModel.searchText) { _, search in
                     if search.isEmpty {
                         viewModel.removeSelectedCoin()
                     }
@@ -67,19 +72,22 @@ struct PortfolioView: View {
                             .imageScale(.medium)
                     }
                 }
-                
+
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 10) {
                         Image(systemName: "checkmark")
                             .opacity(viewModel.showCheckMark ? 1 : 0)
-                        
+
                         Button {
                             viewModel.saveButtonPressed()
                         } label: {
                             Text("Save".uppercased())
                         }
                         .opacity(
-                            (viewModel.selectedCoin != nil && viewModel.selectedCoin?.currentHoldings != Double(viewModel.quantity)) ? 1 : 0
+                            (viewModel.selectedCoin != nil
+                                && viewModel.selectedCoin?.currentHoldings
+                                    != Double(viewModel.quantity))
+                                ? 1 : 0
                         )
                     }
                     .font(.headline)
@@ -94,14 +102,16 @@ struct PortfolioView: View {
         .environmentObject(HomeViewModel())
 }
 
-
 struct CoinCardListView: View {
     @EnvironmentObject var viewModel: HomeViewModel
     @Binding var selectedCoin: Coin?
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
-                ForEach(viewModel.searchText.isEmpty ? viewModel.portfolioCoins : viewModel.filteredResults) { coin in
+                ForEach(
+                    viewModel.searchText.isEmpty
+                        ? viewModel.portfolioCoins : viewModel.filteredResults
+                ) { coin in
                     CoinLogoCardView(coin: coin)
                         .frame(width: 75)
                         .padding(4)
@@ -112,7 +122,10 @@ struct CoinCardListView: View {
                         }
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(selectedCoin?.id == coin.id ? Color.green : Color.clear , lineWidth: 1)
+                                .stroke(
+                                    selectedCoin?.id == coin.id
+                                        ? Color.green : Color.clear,
+                                    lineWidth: 1)
                         )
                 }
                 .onChange(of: viewModel.searchText) {
@@ -126,15 +139,17 @@ struct CoinCardListView: View {
             .padding(.leading, 16)
         }
     }
-    
+
     private func updateSelectedCoin(coin: Coin) {
         selectedCoin = coin
-        
-        if let portfolioCoin = viewModel.portfolioCoins.first(where: { $0.id == coin.id }), let amount = portfolioCoin.currentHoldings {
+
+        if let portfolioCoin = viewModel.portfolioCoins.first(where: {
+            $0.id == coin.id
+        }), let amount = portfolioCoin.currentHoldings {
             viewModel.quantity = "\(amount)"
         } else {
             viewModel.quantity = ""
         }
-        
+
     }
 }

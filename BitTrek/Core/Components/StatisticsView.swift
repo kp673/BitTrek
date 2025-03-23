@@ -9,9 +9,9 @@ import SwiftUI
 
 struct StatisticsView: View {
     let stat: Statistics
-    
+
     var body: some View {
-        VStack(alignment: .leading, spacing:5) {
+        VStack(alignment: .leading, spacing: 5) {
             Text(stat.title)
                 .font(.caption)
                 .foregroundStyle(Color.secondaryText)
@@ -23,7 +23,7 @@ struct StatisticsView: View {
                     Image(systemName: "triangle.fill")
                         .font(.caption2)
                         .rotationEffect(.degrees(change < 0 ? 180 : 0))
-                    
+
                     Text("\(change.asNumbersString())%")
                         .font(.caption)
                         .bold()
@@ -39,5 +39,7 @@ struct StatisticsView: View {
 }
 
 #Preview {
-    StatisticsView(stat: Statistics(title: "Market Cap", value: "$12.3B", percentage: 24.5))
+    StatisticsView(
+        stat: Statistics(title: "Market Cap", value: "$12.3B", percentage: 24.5)
+    )
 }

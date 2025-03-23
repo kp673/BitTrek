@@ -10,6 +10,9 @@ import SwiftUI
 @main
 struct BitTrekApp: App {
     @StateObject private var viewModel = HomeViewModel()
+    @State private var showLaunchView: Bool = true
+    
+    
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.accent)]
@@ -19,10 +22,22 @@ struct BitTrekApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack{
-                HomeView()
-                    .toolbar(.hidden)
-                    .environmentObject(viewModel)
+            ZStack {
+                NavigationStack {
+                    HomeView()
+                        .toolbar(.hidden)
+                        .environmentObject(viewModel)
+                }
+                if showLaunchView {
+                    launchView()
+                        .transition(.move(edge: .trailing))
+                }
+            }
+            .task {
+                await viewModel.refreshData(isRefreshing: false)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    showLaunchView.toggle()
+                }
             }
         }
     }

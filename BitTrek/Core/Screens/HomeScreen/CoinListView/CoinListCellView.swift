@@ -8,32 +8,31 @@
 import SwiftUI
 
 struct CoinListCellView: View {
-    
+
     let coin: Coin
     let showHoldingsColumn: Bool
-    
+
     var body: some View {
         HStack(spacing: 5) {
             Text("\(coin.rank)")
                 .font(.caption)
                 .foregroundStyle(Color.secondaryText)
                 .frame(minWidth: 30)
-            
-            
+
             CachedAsyncImage(url: coin.image)
                 .frame(width: 30, height: 30)
-            
+
             Text("\(coin.symbol.uppercased())")
                 .font(.headline)
                 .padding(.leading, 6)
                 .foregroundStyle(Color.accent)
-            
+
             Spacer()
-            
+
             if showHoldingsColumn {
                 HoldingView(coin: coin)
             }
-            
+
             PriceView(coin: coin)
         }
         .font(.subheadline)
@@ -61,7 +60,7 @@ struct HoldingView: View {
 
 struct PriceView: View {
     let coin: Coin
-    
+
     var body: some View {
         VStack(alignment: .trailing) {
             Text(coin.currentPrice.asCurrencyUpto6Places())
@@ -69,7 +68,8 @@ struct PriceView: View {
                 .foregroundStyle(Color.accent)
             Text("\(coin.priceChangePercentage24H?.asNumbersString() ?? "")%")
                 .foregroundStyle(
-                    coin.priceChangePercentage24H ?? 0 >= 0 ? Color.greenTheme : Color.redTheme
+                    coin.priceChangePercentage24H ?? 0 >= 0
+                        ? Color.greenTheme : Color.redTheme
                 )
         }
         .frame(width: UIScreen.main.bounds.width / 3, alignment: .trailing)
