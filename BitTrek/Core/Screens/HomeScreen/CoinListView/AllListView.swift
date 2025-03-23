@@ -12,6 +12,9 @@ struct AllListView: View {
         List {
             ForEach(viewModel.filteredResults) { coin in
                 CoinListCellView(coin: coin, showHoldingsColumn: false)
+                    .onTapGesture {
+                        viewModel.seguetoCoinDetails(with: coin)
+                    }
                 
             }
         }
@@ -28,6 +31,9 @@ struct PortfolioCoinsListView: View {
         List {
             ForEach(viewModel.portfolioCoins) { coin in
                 CoinListCellView(coin: coin, showHoldingsColumn: true)
+                    .onTapGesture {
+                        viewModel.seguetoCoinDetails(with: coin)
+                    }
             }
         }
         .listStyle(.inset)

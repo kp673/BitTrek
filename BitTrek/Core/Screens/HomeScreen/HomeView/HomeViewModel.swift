@@ -28,8 +28,9 @@ class HomeViewModel: ObservableObject {
     @Published var statistics = [Statistics]()
     let portfolioDataService = PortfolioDataService()
     
-    //MARK: Core Data
-//    @Published var savedEntity = []
+    //MARK: Detail View
+    @Published var selectedCoinForDetail: Coin? = nil
+    @Published var showDetailView: Bool = false
     
     
     var marketData: MarketDataModel? = nil
@@ -177,6 +178,12 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    func seguetoCoinDetails(with coin: Coin) {
+        selectedCoin = coin
+        showDetailView = true
+    }
+    
+    
     //MARK: - UI Updates
     
     func updateStatistics() {
@@ -221,7 +228,6 @@ class HomeViewModel: ObservableObject {
         selectedCoin = nil
         searchText = ""
     }
-    
     
     //MARK: - Fetch Data Calls
     private func fetchCoins() async throws -> Coins? {

@@ -75,6 +75,9 @@ struct HomeView: View {
                 viewModel.getPortfolioData()
             }
         }
+        .navigationDestination(isPresented: $viewModel.showDetailView) {
+            DetailSegueView(coin: $viewModel.selectedCoin)
+        }
     }
 }
 

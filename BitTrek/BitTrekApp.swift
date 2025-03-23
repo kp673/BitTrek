@@ -19,7 +19,7 @@ struct BitTrekApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            NavigationStack{
                 HomeView()
                     .toolbar(.hidden)
                     .environmentObject(viewModel)

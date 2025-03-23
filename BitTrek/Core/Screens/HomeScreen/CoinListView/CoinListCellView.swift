@@ -37,6 +37,7 @@ struct CoinListCellView: View {
             PriceView(coin: coin)
         }
         .font(.subheadline)
+        .contentShape(Rectangle())
     }
 }
 
