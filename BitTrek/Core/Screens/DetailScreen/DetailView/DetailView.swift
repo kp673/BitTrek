@@ -22,6 +22,7 @@ struct DetailSegueView: View {
 
 struct DetailView: View {
     @StateObject var viewModel = DetailViewModel()
+    @State private var showFullDescription: Bool = false
     
     private let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -37,23 +38,39 @@ struct DetailView: View {
                     ChartView(coin: coin)
                         .padding(.top, 16)
                     VStack(spacing: 10) {
-                        
                         overviewTitle
                         Divider()
+                        
+                        descriptionSection
                         overviewGrid
                         
                         additionalTitle
                         Divider()
                         additionalGrid
+                        
+                        HStack {
+                            if let websiteString = viewModel.coinDetails?.links?.homepage?.first, let url = URL(string: websiteString) {
+                                
+                                Link("Website", destination: url)
+                            }
+                            Spacer()
+                            if let redditString = viewModel.coinDetails?.links?.subredditURL, let url = URL(string: redditString) {
+                                Link("Reddit", destination: url)
+                            }
+                        }
+                        .tint(.blue)
+                        .padding()
+                        .font(.headline)
+                        
                     }
                     .padding(16)
                 }
             }
-            .navigationTitle(coin.name)
         }
         .task {
             await viewModel.getCoinDetails(for: coin)
         }
+        .navigationTitle(coin.name)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 toolBarImage
@@ -97,6 +114,32 @@ extension DetailView {
             .bold()
             .foregroundStyle(Color.accent)
             .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var descriptionSection: some View {
+        ZStack {
+            if let coinDestription = viewModel.coinDetails?.readableDescription, !coinDestription.isEmpty {
+                VStack(alignment: .leading) {
+                    Text(coinDestription)
+                        .lineLimit(showFullDescription ? nil : 4)
+                        .font(.callout)
+                        .foregroundStyle(Color.secondaryText)
+                    
+                    Button {
+                        withAnimation(.easeInOut) {
+                            showFullDescription.toggle()
+                        }
+                    } label: {
+                        Text(showFullDescription ? "Less" : "Read More")
+                            .font(.caption)
+                            .bold()
+                            .padding(.vertical, 4)
+                    }
+                    .accentColor(.blue)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
     }
     
     private var overviewGrid: some View {

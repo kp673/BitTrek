@@ -11,6 +11,10 @@ final class DetailViewModel: ObservableObject {
     @Published var coinDetails: CoinDetail?
     @Published var overviewStatistics: [Statistics] = []
     @Published var additionalStatistics: [Statistics] = []
+    @Published var coinDescription: String?
+    @Published var websiteUrl: String?
+    @Published var redditUrl: String?
+    
     var coin: Coin?
 
     //MARK: - Public Get Data Calls
