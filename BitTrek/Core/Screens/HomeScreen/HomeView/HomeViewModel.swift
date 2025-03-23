@@ -11,7 +11,7 @@ import SwiftUI
 class HomeViewModel: ObservableObject {
     @Published var showPortfolio: Bool = false
     @Published var showPortfolioView: Bool = false
-    @Published var isLoding: Bool = false
+    @Published var isLoding: Bool = true
     @Published var searchText: String = ""
     @Published var sortOption: CoinSortOptions = .holdings
     
@@ -37,7 +37,8 @@ class HomeViewModel: ObservableObject {
 
     
     // MARK: - public get data calls
-    func refreshData() async {
+    func refreshData(isRefreshing: Bool) async {
+        guard isRefreshing || allCoins.isEmpty else { return }
         await getCoins()
         await getMarketData()
         getPortfolioData()

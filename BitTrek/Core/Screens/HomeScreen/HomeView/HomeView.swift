@@ -51,7 +51,7 @@ struct HomeView: View {
         }
         .task {
             withAnimation { viewModel.isLoding = true}
-            await viewModel.refreshData()
+            await viewModel.refreshData(isRefreshing: false)
             withAnimation { viewModel.isLoding = false}
         }
         .blur(radius: viewModel.isLoding ? 5 : 0)
@@ -69,7 +69,7 @@ struct HomeView: View {
         .refreshable {
             if !viewModel.showPortfolio {
                 Task {
-                    await viewModel.refreshData()
+                    await viewModel.refreshData(isRefreshing: true)
                 }
             } else {
                 viewModel.getPortfolioData()

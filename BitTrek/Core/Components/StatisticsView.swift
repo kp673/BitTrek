@@ -11,7 +11,7 @@ struct StatisticsView: View {
     let stat: Statistics
     
     var body: some View {
-        VStack(spacing:5) {
+        VStack(alignment: .leading, spacing:5) {
             Text(stat.title)
                 .font(.caption)
                 .foregroundStyle(Color.secondaryText)
