@@ -10,6 +10,7 @@ import SwiftUI
 struct PortfolioView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var viewModel: HomeViewModel
+    @FocusState var isFocused: Bool
 
     
     var body: some View {
@@ -18,6 +19,7 @@ struct PortfolioView: View {
                 VStack {
                     SearchBarView(searchTerm: $viewModel.searchText)
                         .padding(16)
+                    
                     CoinCardListView(selectedCoin: $viewModel.selectedCoin)
                     
                     if viewModel.selectedCoin != nil {
@@ -48,11 +50,17 @@ struct PortfolioView: View {
                         .font(.headline)
                     }
                 }
+                .onChange(of: viewModel.searchText) { _ , search in
+                    if search.isEmpty {
+                        viewModel.removeSelectedCoin()
+                    }
+                }
             }
             .navigationTitle("Edit Portfolio")
             .toolbar(content: {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
+                        UIApplication.shared.endEditing()
                         dismiss()
                     } label: {
                         Image(systemName: "xmark")
@@ -93,13 +101,13 @@ struct CoinCardListView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
-                ForEach(viewModel.filteredResults) { coin in
+                ForEach(viewModel.searchText.isEmpty ? viewModel.portfolioCoins : viewModel.filteredResults) { coin in
                     CoinLogoCardView(coin: coin)
                         .frame(width: 75)
                         .padding(4)
                         .onTapGesture {
                             withAnimation {
-                                selectedCoin = coin
+                                updateSelectedCoin(coin: coin)
                             }
                         }
                         .background(
@@ -117,5 +125,16 @@ struct CoinCardListView: View {
             .padding(.vertical, 8)
             .padding(.leading, 16)
         }
+    }
+    
+    private func updateSelectedCoin(coin: Coin) {
+        selectedCoin = coin
+        
+        if let portfolioCoin = viewModel.portfolioCoins.first(where: { $0.id == coin.id }), let amount = portfolioCoin.currentHoldings {
+            viewModel.quantity = "\(amount)"
+        } else {
+            viewModel.quantity = ""
+        }
+        
     }
 }

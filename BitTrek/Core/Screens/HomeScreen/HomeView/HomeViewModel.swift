@@ -13,6 +13,7 @@ class HomeViewModel: ObservableObject {
     @Published var showPortfolioView: Bool = false
     @Published var isLoding: Bool = false
     @Published var searchText: String = ""
+    @Published var sortOption: CoinSortOptions = .holdings
     
     // MARK: Portfolio Edit View
     @Published var selectedCoin: Coin? = nil
@@ -23,13 +24,24 @@ class HomeViewModel: ObservableObject {
     @Published var allCoins = [Coin]()
     @Published var portfolioCoins = [Coin]()
     @Published var filteredResults = [Coin]()
+    @Published var filteredPortfolioCoins: [Coin] = []
     @Published var statistics = [Statistics]()
+    let portfolioDataService = PortfolioDataService()
+    
+    //MARK: Core Data
+//    @Published var savedEntity = []
     
     
     var marketData: MarketDataModel? = nil
 
     
     // MARK: - public get data calls
+    func refreshData() async {
+        await getCoins()
+        await getMarketData()
+        getPortfolioData()
+    }
+    
     func getCoins() async {
         do {
             if let coins: Coins = try await fetchCoins() {
@@ -47,12 +59,21 @@ class HomeViewModel: ObservableObject {
         do {
             let globalData: GlobalData? = try await fetchMarketData()
             self.marketData = globalData?.data
-            await MainActor.run {
-                self.updateStatistics()
-            }
         } catch {
             print("Error fetching market Data: \(error)")
         }
+    }
+    
+    func getPortfolioData() {
+        let savedEntity = portfolioDataService.savedEntity
+        let savedIds = savedEntity.map(\.coinId)
+        allCoins.indices.forEach { index in
+            guard let entity = savedEntity.first(where: { $0.coinId == allCoins[index].id }) else { return }
+            allCoins[index].updateCurrentHoldings(to: entity.amount)
+        }
+        portfolioCoins = allCoins.filter { savedIds.contains($0.id) }
+        self.updateStatistics()
+        
     }
     
     // MARK: - User View Events
@@ -71,10 +92,26 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    func handleSearchOnPortfolioCoins() {
+        if searchText.isEmpty {
+            withAnimation {
+                filteredPortfolioCoins = portfolioCoins
+            }
+        } else {
+            withAnimation(.easeInOut(duration: 1)) {
+                filteredPortfolioCoins = portfolioCoins.filter({
+                    $0.symbol.lowercased().contains(searchText.lowercased()) ||
+                    $0.name.lowercased().contains(searchText.lowercased())
+                })
+            }
+        }
+    }
+    
     func saveButtonPressed() {
         guard let coin = selectedCoin else { return }
         
         //save to portfolio
+        portfolioDataService.updatePortfolio(coin: coin, amount: Double(quantity) ?? 0)
         
         //show checkmark
         withAnimation {
@@ -84,9 +121,61 @@ class HomeViewModel: ObservableObject {
         UIApplication.shared.endEditing()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.showCheckMark = false
+            self.getPortfolioData()
+            self.updateStatistics()
         }
     }
     
+    func handleSortOptionChange() {
+        if showPortfolio {
+            switch sortOption {
+            case .rank:
+                portfolioCoins.sort { $0.rank < $1.rank }
+            case .rankReversed:
+                portfolioCoins.sort { $0.rank > $1.rank }
+            case .holdings:
+                portfolioCoins.sort { $0.currentHoldingsValue > $1.currentHoldingsValue }
+            case .holdingsReversed:
+                portfolioCoins.sort { $0.currentHoldingsValue < $1.currentHoldingsValue }
+            case .price:
+                portfolioCoins.sort { $0.currentPrice > $1.currentPrice }
+            case .priceReversed:
+                portfolioCoins.sort { $0.currentPrice < $1.currentPrice }
+            }
+            return
+        }
+        if searchText.isEmpty {
+            switch sortOption {
+            case .rank:
+                allCoins.sort { $0.rank < $1.rank }
+            case .rankReversed:
+                allCoins.sort { $0.rank > $1.rank }
+            case .holdings:
+                allCoins.sort { $0.currentHoldingsValue > $1.currentHoldingsValue }
+            case .holdingsReversed:
+                allCoins.sort { $0.currentHoldingsValue < $1.currentHoldingsValue }
+            case .price:
+                allCoins.sort { $0.currentPrice > $1.currentPrice }
+            case .priceReversed:
+                allCoins.sort { $0.currentPrice < $1.currentPrice }
+            }
+        } else {
+            switch sortOption {
+            case .rank:
+                filteredResults.sort { $0.rank < $1.rank }
+            case .rankReversed:
+                filteredResults.sort { $0.rank > $1.rank }
+            case .holdings:
+                filteredResults.sort { $0.currentHoldingsValue > $1.currentHoldingsValue }
+            case .holdingsReversed:
+                filteredResults.sort { $0.currentHoldingsValue < $1.currentHoldingsValue }
+            case .price:
+                filteredResults.sort { $0.currentPrice > $1.currentPrice }
+            case .priceReversed:
+                filteredResults.sort { $0.currentPrice < $1.currentPrice }
+            }
+        }
+    }
     
     //MARK: - UI Updates
     
@@ -98,7 +187,19 @@ class HomeViewModel: ObservableObject {
         let volume = Statistics(title: "24h Volume", value: data.volume)
         
         let BTCDominance = Statistics(title: "BTC Dominance", value: data.btcDominance)
-        let portfolio = Statistics(title: "Portfolio Value", value: "0.00", percentage: 0)
+        
+        let portfolioValue = portfolioCoins.map { $0.currentHoldingsValue }.reduce(0, +)
+        
+//        let previousValue = portfolioCoins.map { coin in
+//            let currentValue = coin.currentHoldingsValue
+//            let precentChange = coin.priceChangePercentage24H ?? 0 / 100
+//            let previousValue = currentValue / (1 + precentChange)
+//            return previousValue
+//        }.reduce(0 as Double, +)
+//        
+//        let percentChange = ((portfolioValue - previousValue) / previousValue) * 100
+        
+        let portfolio = Statistics(title: "Portfolio Value", value: portfolioValue.asCurrencyUpto2Places())
         
         statistics.append(contentsOf: [
             marketCap,
@@ -151,9 +252,9 @@ class HomeViewModel: ObservableObject {
     
     private func fetchMarketData() async throws -> GlobalData? {
 // Use JSON to limit api quries for Testing
-        guard let globalData: GlobalData? = DataService.shared.loadJSONFromFile(fileName: "MarketDataResponse") else { return nil }
-        return globalData
-        
+//        guard let globalData: GlobalData? = DataService.shared.loadJSONFromFile(fileName: "MarketDataResponse") else { return nil }
+//        return globalData
+//        
         
         guard let url = URL(string: "https://api.coingecko.com/api/v3/global") else { throw CoinError.badURL }
         let headers = [

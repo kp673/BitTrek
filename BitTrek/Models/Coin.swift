@@ -35,7 +35,7 @@ import Foundation
 
 typealias Coins = [Coin]
 
-struct Coin: Codable, Identifiable {
+struct Coin: Codable, Identifiable, Hashable {
     let id, symbol, name, image: String
     let currentPrice: Double
     let marketCap, marketCapRank, fullyDilutedValuation: Double?
@@ -65,6 +65,11 @@ struct Coin: Codable, Identifiable {
     }
 }
 
-struct SparklineIn7D: Codable {
+struct SparklineIn7D: Codable, Hashable {
     let price: [Double]?
+}
+
+
+enum CoinSortOptions {
+    case rank, rankReversed, holdings, holdingsReversed, price, priceReversed
 }
