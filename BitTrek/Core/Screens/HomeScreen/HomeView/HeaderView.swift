@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @Binding var showPortfolio: Bool // Go to View
-    @Binding var showPortfolioView: Bool // Show edit VIew
-    
+    @Binding var showPortfolio: Bool  // Go to View
+    @Binding var showPortfolioView: Bool  // Show edit VIew
+
     var body: some View {
         HStack {
-            CircleButtonView(iconName: showPortfolio ? "plus" : "info")
-                .animation(.none, value: showPortfolio)
+            CircleButtonView(iconName: "plus")
                 .background {
                     CircleButtonAnimationView(animate: $showPortfolio)
                 }
+                .opacity(showPortfolio ? 1 : 0)
                 .onTapGesture {
                     if showPortfolio { showPortfolioView.toggle() }
                 }
@@ -35,8 +35,8 @@ struct HeaderView: View {
                         showPortfolio.toggle()
                     }
                 }
-            
-       }
+
+        }
         .padding(.horizontal)
     }
 }
