@@ -11,6 +11,8 @@ BitTrek is a cryptocurrency portfolio tracker app designed to provide live crypt
 - **Core Data Integration**: Persist user data securely and efficiently.
 - **Swift Concurrency**: Utilize Swift 6's concurrency features to ensure smooth performance and thread-safe operations.
 - **MVVM Architecture**: Maintain a clean and scalable codebase with Model-View-ViewModel design.
+- **Cached Images**: Cached coin logo to reduce api calls and thread loads
+- **Custom Charts**: Custom charts to show coin data over 7 days
 
 ---
 
@@ -91,7 +93,7 @@ BitTrek follows the **MVVM architecture**, ensuring a clean separation of concer
 
 - **API**: [CoinGecko API](https://www.coingecko.com/en)
 - **Developer**: [Kush Patel]
-- **Guidence**: [Nick Sarno]
+- **Guidence**: [Nick Sarno](https://www.swiftful-thinking.com/)
 ---
 
 ## License
