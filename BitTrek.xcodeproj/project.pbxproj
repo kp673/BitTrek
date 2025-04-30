@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		43838EC22D8E25B100F1C9FA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 43838EA92D8E25AF00F1C9FA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 43838EB02D8E25AF00F1C9FA;
-			remoteInfo = BitTrek;
-		};
 		43838ECC2D8E25B100F1C9FA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 43838EA92D8E25AF00F1C9FA /* Project object */;
@@ -25,7 +18,6 @@
 
 /* Begin PBXFileReference section */
 		43838EB12D8E25AF00F1C9FA /* BitTrek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitTrek.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		43838EC12D8E25B100F1C9FA /* BitTrekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitTrekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43838ECB2D8E25B100F1C9FA /* BitTrekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitTrekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -33,11 +25,6 @@
 		43838EB32D8E25AF00F1C9FA /* BitTrek */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = BitTrek;
-			sourceTree = "<group>";
-		};
-		43838EC42D8E25B100F1C9FA /* BitTrekTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BitTrekTests;
 			sourceTree = "<group>";
 		};
 		43838ECE2D8E25B100F1C9FA /* BitTrekUITests */ = {
@@ -49,13 +36,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		43838EAE2D8E25AF00F1C9FA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43838EBE2D8E25B100F1C9FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				43838EB32D8E25AF00F1C9FA /* BitTrek */,
-				43838EC42D8E25B100F1C9FA /* BitTrekTests */,
 				43838ECE2D8E25B100F1C9FA /* BitTrekUITests */,
 				43838EB22D8E25AF00F1C9FA /* Products */,
 			);
@@ -86,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				43838EB12D8E25AF00F1C9FA /* BitTrek.app */,
-				43838EC12D8E25B100F1C9FA /* BitTrekTests.xctest */,
 				43838ECB2D8E25B100F1C9FA /* BitTrekUITests.xctest */,
 			);
 			name = Products;
@@ -116,29 +94,6 @@
 			productName = BitTrek;
 			productReference = 43838EB12D8E25AF00F1C9FA /* BitTrek.app */;
 			productType = "com.apple.product-type.application";
-		};
-		43838EC02D8E25B100F1C9FA /* BitTrekTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 43838ED82D8E25B100F1C9FA /* Build configuration list for PBXNativeTarget "BitTrekTests" */;
-			buildPhases = (
-				43838EBD2D8E25B100F1C9FA /* Sources */,
-				43838EBE2D8E25B100F1C9FA /* Frameworks */,
-				43838EBF2D8E25B100F1C9FA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				43838EC32D8E25B100F1C9FA /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				43838EC42D8E25B100F1C9FA /* BitTrekTests */,
-			);
-			name = BitTrekTests;
-			packageProductDependencies = (
-			);
-			productName = BitTrekTests;
-			productReference = 43838EC12D8E25B100F1C9FA /* BitTrekTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		43838ECA2D8E25B100F1C9FA /* BitTrekUITests */ = {
 			isa = PBXNativeTarget;
@@ -176,10 +131,6 @@
 					43838EB02D8E25AF00F1C9FA = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					43838EC02D8E25B100F1C9FA = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 43838EB02D8E25AF00F1C9FA;
-					};
 					43838ECA2D8E25B100F1C9FA = {
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = 43838EB02D8E25AF00F1C9FA;
@@ -201,7 +152,6 @@
 			projectRoot = "";
 			targets = (
 				43838EB02D8E25AF00F1C9FA /* BitTrek */,
-				43838EC02D8E25B100F1C9FA /* BitTrekTests */,
 				43838ECA2D8E25B100F1C9FA /* BitTrekUITests */,
 			);
 		};
@@ -209,13 +159,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		43838EAF2D8E25AF00F1C9FA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43838EBF2D8E25B100F1C9FA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,13 +182,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43838EBD2D8E25B100F1C9FA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		43838EC72D8E25B100F1C9FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,11 +192,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		43838EC32D8E25B100F1C9FA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 43838EB02D8E25AF00F1C9FA /* BitTrek */;
-			targetProxy = 43838EC22D8E25B100F1C9FA /* PBXContainerItemProxy */;
-		};
 		43838ECD2D8E25B100F1C9FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 43838EB02D8E25AF00F1C9FA /* BitTrek */;
@@ -450,44 +381,6 @@
 			};
 			name = Release;
 		};
-		43838ED92D8E25B100F1C9FA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 44S328XCHF;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kush.BitTrekTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BitTrek.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BitTrek";
-			};
-			name = Debug;
-		};
-		43838EDA2D8E25B100F1C9FA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 44S328XCHF;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kush.BitTrekTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BitTrek.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BitTrek";
-			};
-			name = Release;
-		};
 		43838EDC2D8E25B100F1C9FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -539,15 +432,6 @@
 			buildConfigurations = (
 				43838ED62D8E25B100F1C9FA /* Debug */,
 				43838ED72D8E25B100F1C9FA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		43838ED82D8E25B100F1C9FA /* Build configuration list for PBXNativeTarget "BitTrekTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				43838ED92D8E25B100F1C9FA /* Debug */,
-				43838EDA2D8E25B100F1C9FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

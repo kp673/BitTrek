@@ -128,7 +128,8 @@ final class DetailViewModel: ObservableObject {
         ]
 
         do {
-            let details: CoinDetail? = try await DataService.shared.get(
+            let details: CoinDetail?
+            details = try await DataService.shared.get(
                 url: url, headers: headers, queryComponents: queryComponent)
 
             return details
